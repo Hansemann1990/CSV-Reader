@@ -1,0 +1,8 @@
+﻿  Quelle.cpp
+C:\Users\z003zx7h\Desktop\Lauro\Programming Principles\Excel\Test\Excel Reader_writer 1.3\Excel Reader_Writer_1.3\Excel Reader_Writer_1.3\Quelle.cpp(102,23): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+C:\Users\z003zx7h\Desktop\Lauro\Programming Principles\Excel\Test\Excel Reader_writer 1.3\Excel Reader_Writer_1.3\Excel Reader_Writer_1.3\Quelle.cpp(103,27): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+C:\Users\z003zx7h\Desktop\Lauro\Programming Principles\Excel\Test\Excel Reader_writer 1.3\Excel Reader_Writer_1.3\Excel Reader_Writer_1.3\Quelle.cpp(108,22): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+C:\Users\z003zx7h\Desktop\Lauro\Programming Principles\Excel\Test\Excel Reader_writer 1.3\Excel Reader_Writer_1.3\Excel Reader_Writer_1.3\Quelle.cpp(109,27): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+C:\Users\z003zx7h\Desktop\Lauro\Programming Principles\Excel\Test\Excel Reader_writer 1.3\Excel Reader_Writer_1.3\Excel Reader_Writer_1.3\Quelle.cpp(113,22): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+C:\Users\z003zx7h\Desktop\Lauro\Programming Principles\Excel\Test\Excel Reader_writer 1.3\Excel Reader_Writer_1.3\Excel Reader_Writer_1.3\Quelle.cpp(114,26): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+  Excel Reader_Writer_1.3.vcxproj -> C:\Users\z003zx7h\Desktop\Lauro\Programming Principles\Excel\Test\Excel Reader_writer 1.3\Excel Reader_Writer_1.3\Debug\Excel Reader_Writer_1.3.exe

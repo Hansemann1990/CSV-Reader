@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Excel Reader_Writer_1.3", "Excel Reader_Writer_1.3\Excel Reader_Writer_1.3.vcxproj", "{372F4993-DE60-4AB0-8799-5293809DD1FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{372F4993-DE60-4AB0-8799-5293809DD1FC}.Debug|x64.ActiveCfg = Debug|x64
+		{372F4993-DE60-4AB0-8799-5293809DD1FC}.Debug|x64.Build.0 = Debug|x64
+		{372F4993-DE60-4AB0-8799-5293809DD1FC}.Debug|x86.ActiveCfg = Debug|Win32
+		{372F4993-DE60-4AB0-8799-5293809DD1FC}.Debug|x86.Build.0 = Debug|Win32
+		{372F4993-DE60-4AB0-8799-5293809DD1FC}.Release|x64.ActiveCfg = Release|x64
+		{372F4993-DE60-4AB0-8799-5293809DD1FC}.Release|x64.Build.0 = Release|x64
+		{372F4993-DE60-4AB0-8799-5293809DD1FC}.Release|x86.ActiveCfg = Release|Win32
+		{372F4993-DE60-4AB0-8799-5293809DD1FC}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {431FE66B-CF66-4F15-983B-40219426B37A}
+	EndGlobalSection
+EndGlobal
