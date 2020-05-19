@@ -8,90 +8,85 @@
 #include <iterator>
 #include <sstream>
 
-// Is necessary to differentiate the fields in case they are seperated by ; or "" 
-enum class CSVState { 
+//-----------------------------------------------------------------------------------------------------------------------
+
+/*Version 1.3:
+           Program to compare two CSV-files. One with Assets according to DIN276 and one with the Assets of the analyzed building.
+           Important is that the assetlist has to be saved in CSV and that they are structured in a certain way (see the for loop below).
+           Next steps are to create a file with the results and to let the foor loop start at catch words like "Anlage" and "Anzahl"
+           After that the DIN276 list should be extended to hold more Assets referring to one asset of DIN276 so more words can be found to be assigned to
+           an asset and the associated pricing*/
+
+
+
+enum class CSVState { // It is necessary to differentiate the fields in case they are seperated by ; or "". Also the case of quoted fields is considered.
     UnquotedField,
     QuotedField,
     QuotedQuote
 };
 
-// Goeas through each char to determine where each field starts and ends
-std::vector<std::string> readCSVRow(const std::string& row) { 
+
+std::vector<std::string> readCSVRow(const std::string& row) { // Goeas through each char to determine where each field starts and ends
     CSVState state = CSVState::UnquotedField;
     std::vector<std::string> fields{ "" };
-    size_t i = 0; // index of the current field
+    size_t i = 0;
     for (char c : row) {
+        
         switch (state) {
         case CSVState::UnquotedField:
             switch (c) {
-            case ';': // end of field                          Active
-                fields.push_back(""); i++;
+            case ';': fields.push_back(""); i++;
                 break;
             case '"': state = CSVState::QuotedField;
                 break;
-                
-            default:  fields[i].push_back(c);               // Active
-                break;
-            }
+            default: fields[i].push_back(c);}
             break;
+
         case CSVState::QuotedField:
             switch (c) {
             case '"': state = CSVState::QuotedQuote;
                 break;
-            default:  fields[i].push_back(c);              // Active
-                break;
-            }
+            default: fields[i].push_back(c);}
             break;
+
         case CSVState::QuotedQuote:
             switch (c) {
             case ';': // , after closing quote
                 fields.push_back(""); i++;
                 state = CSVState::UnquotedField;
-                
                 break;
             case '"': // "" -> "
                 fields[i].push_back('"');
                 state = CSVState::QuotedField;
-                
                 break;
             default:  // end of quote
                 state = CSVState::UnquotedField;
-                
-                break;
             }
             break;
         }
         
     }
-    
-    
-    return fields;
+     return fields;
 }
 
-/// Read CSV file, Excel dialect. Accept "quoted fields ""with quotes""" and fields seperated by ;
-std::vector<std::vector<std::string>> readCSV(std::istream& in) {
+
+std::vector<std::vector<std::string>> readCSV(std::istream& in) {// Read CSV file. Accept "quoted fields ""with quotes""" and fields seperated by ;
     std::vector<std::vector<std::string>> table;
     std::string row;
+
     while (!in.eof()) {
         std::getline(in, row);
         
-        if (in.bad() || in.fail()) {
-            std::cout << "Couldn't read the file properly.\n";
-            break;
-        }
+        if (in.bad() || in.fail()) std::cout << "Couldn't read the file properly.\n";
+        
         auto fields = readCSVRow(row);
         table.push_back(fields);     
     }
      return table;
 }
 
-int main() /*Version 1.3: 
-           Program to compare two CSV-files. One with Assets according to DIN276 and one with the Assets of the analyzed building. 
-           Important is that the assetlist has to be saved in CSV and that they are structured in a certain way (see the for loop below).
-           Next steps are to create a file with the results and to let the foor loop start at catch words like "Anlage" and "Anzahl"
-           After that the DIN276 list should be extended to hold more Assets referring to one asset of DIN276 so more words can be found to be assigned to
-           an asset and the associated pricing*/
-{
+int main() 
+try{
     std::ifstream din276("../../DIN276.csv");
     std::vector<std::vector<std::string>> din276_file = readCSV(din276);
 
@@ -115,5 +110,7 @@ int main() /*Version 1.3:
            if (din[i] == anlage[k])
                std::cout << din[i] << "\t" << table[k][3] << "\n";
 
-
+}
+catch (const std::out_of_range& e) {
+    std:: cerr<<"Out of Range error: " << e.what() << '\n';
 }
